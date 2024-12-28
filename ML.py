@@ -2,6 +2,13 @@ import numpy as np
 import pandas as pd
 import os
  
+for dirname, _, filenames in os.walk('./csv'):
+    for filename in filenames:
+        print(os.path.join(dirname, filename))
+
+date_format = '%d-%m-%Y %H:%M'
+df = pd.read_csv('./csv/OnlineRetail.csv', encoding="ISO-8859-1", parse_dates=['InvoiceDate'], date_format=date_format)
+df.head()
 
 for dirname, _, filenames in os.walk('./csv'):
     for filename in filenames:
